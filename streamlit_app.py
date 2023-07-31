@@ -28,15 +28,15 @@ streamlit.dataframe(fruits_to_show)
 #New section to display FruityVice API reponse
 streamlit.header("Fruityvice Fruit Advice!")
 try:
-fruit_choice = streamlit.text_input('What fruit would you like information about?')
-if not fruit_choice:
-  streamlit.error("Please select a fruit to get information")
-else:
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-streamlit.dataframe(fruityvice_normalized)
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+      streamlit.error("Please select a fruit to get information")
+  else:
+      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+      streamlit.dataframe(fruityvice_normalized)
 except URLerror as e:
-streamlit.error()
+  streamlit.error()
 
 #add_my_fruit = streamlit.text_input('What fruit would you like to add?','jackfruit')
 #streamlit.write('The user entered ', add_my_fruit)
