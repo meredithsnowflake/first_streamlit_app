@@ -42,5 +42,6 @@ try:
       streamlit.dataframe(back_from_function)
      
 except URLerror as e:
-    #streamlit.error()
+    streamlit.error()
 
+streamlit.stop()
